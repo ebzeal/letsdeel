@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var cors = require("cors");
 
 const {getProfile} = require('./middleware/getProfile')
 const {getContract, getContractProfile} = require('./services/contracts.services');
@@ -7,6 +8,7 @@ const { getUserUnpaidJob, payForJob } = require('./services/jobs.services');
 const { depositFunds, highestPaidProfessionService, highestPayingClientService } = require('./services/admin.services');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 /**
